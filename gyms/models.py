@@ -9,7 +9,7 @@ class Gym(models.Model):
 
 class GymAdministrator(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    gym = models.ForeignKey(Gym, on_delete=models.CASCADE)
+    gym = models.ManyToManyField(Gym)
     name = models.CharField(max_length=50)
     
     def __str__(self):
