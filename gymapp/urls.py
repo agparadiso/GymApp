@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.urls import path
+from django.urls import path, include
 from gyms import views
 
 urlpatterns = [
@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout/', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('signup/admin/', views.AdminSignUp.as_view(), name='adminsignup'),
     path('admin_home/', views.AdminHome),
+    path('payments/', include("pinax.stripe.urls")),
 ]

@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gyms'
+    "django.contrib.sites",
+    'gyms',
+    "pinax.stripe",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pinax.stripe.middleware.ActiveSubscriptionMiddleware',
 ]
 
 ROOT_URLCONF = 'gymapp.urls'
@@ -123,3 +126,11 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/admin_home/'
 
 AUTH_USER_MODEL = 'gyms.User'
+
+#for pinax stripe integration
+SITE_ID = 1
+
+PINAX_STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_vVODskfcc7Qr4C7i2AHGJr7F")
+PINAX_STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_vpZqYsbQxVBWQO4nS5y7Ia0A")
+PINAX_STRIPE_DEFAULT_PLAN = 1
+PINAX_STRIPE_SUBSCRIPTION_REQUIRED_REDIRECT = "www.google.com"

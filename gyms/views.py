@@ -4,6 +4,7 @@ from django.views.generic import CreateView
 
 from gyms.forms import AdminSignUpForm
 from gyms.models import User
+from pinax.stripe.actions import customers
 
 class AdminSignUp(CreateView):
     model = User
@@ -16,6 +17,7 @@ class AdminSignUp(CreateView):
 
     def form_valid(self, form):
         user = form.save()
+        customers.create(user=user)
         login(self.request, user)
         return redirect('/admin_home/')
 
