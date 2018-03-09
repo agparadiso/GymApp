@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django.contrib.sites",
     'gyms',
-    "pinax.stripe",
+    'pinax.stripe',
+    'pinax.templates',
+    'bootstrapform',
+    'bootstrap3',
+
 ]
 
 MIDDLEWARE = [
@@ -133,4 +137,4 @@ SITE_ID = 1
 PINAX_STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_vVODskfcc7Qr4C7i2AHGJr7F")
 PINAX_STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_vpZqYsbQxVBWQO4nS5y7Ia0A")
 PINAX_STRIPE_DEFAULT_PLAN = 1
-PINAX_STRIPE_SUBSCRIPTION_REQUIRED_REDIRECT = "www.google.com"
+PINAX_STRIPE_SUBSCRIPTION_REQUIRED_REDIRECT = "www.somethinginthepinaxconfiguraationinSettigns.com"

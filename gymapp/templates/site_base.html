@@ -1,0 +1,20 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html>
+    <head>
+        <title>
+            {% block title %}{% endblock title %}
+        </title>
+        {% block stylesheets %}{% endblock stylesheets %}
+    </head>
+    <body>
+        {% block body %}
+            <div class="content">
+            {% block content %}
+            {% endblock content %}
+            </div>
+        {% endblock body %}
+    </body>
+</html>
